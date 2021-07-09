@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS evaluation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="public/src/js/vuejs.js"></script>
+</head>
+
+<body :style="{ 'background-image': 'url(' + image + ')' }">
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col">
+                <h1>Vue js work</h1>
+                <div id="app">
+                    <img width="500px" class="img-thumbnail" :src="image" alt="" />
+                    <input class="form-control" type="text" name="" id="" :value="text">
+                    <span v-html="platefrm"></span>
+                    <p>{{ text }}</p>
+                    <p>{{ salam() }}</p>
+                    <form class="form-control" action="">
+                        <h4>form :</h4>
+                        <button class="btn  btn-secondary  m-1 " @click.prevent="add()">submit</button>
+                    </form>
+
+                    <input class="form-control" @keyup="logname($event.target.value)" placeholder="write somthing u will got it on console log" type="text">
+                    <input class="form-control" @keyup.enter="logname($event.target.value)" placeholder="write somthing and click enter then u will got it on console log" type="text">
+                    <br>
+                    <a @click.prevent="add()" target="_blank" href="https://google.com">google</a>
+                    <br>
+                    <button class="btn  btn-primary m-1 " @click.once="add()">click one time </button>
+                    <br>
+                    <input class="form-control" placeholder="write somthing u will got it on span on right" type="text" v-model="name">
+                    <span>{{name}}</span>
+
+
+                    <!--
+        <button v-on:click="counter++">increment + </button>
+        <button v-on:click="counter--">decrement - </button>  
+        -->
+                    <h1>{{ counter }}</h1>
+                    <button @click="toggle = !toggle" class="btn btn-secondary  m-1">toggle</button>
+
+                    <!--  v-if hide html too 
+                          v-show applique style display none  
+                    
+                    -->
+                    <div v-if="toggle">
+
+                        <input class="form-control" placeholder="step :" v-model="step" type="text">
+                        <button class="btn  btn-primary m-1 " @click="increment()">increment + </button>
+                        <button class="btn  btn-primary m-1 " @click="decrement()">decrement - </button><br>
+
+                        <button class="btn  btn-primary m-1 " @dblclick="reset()">double click for reset</button>
+                        <br>
+                        <input class="form-control" placeholder="enter number to multipleted by our number" type="text" v-model="initvalue"> <span>{{calcul}}</span>
+                        <span :style="{'color': result ? 'white' : 'black', 'font-size' : '25px'}" :class="['badge',classObject]" class="badge  ">{{message}}</span>
+                    </div>
+                    <div v-else="toggle">
+                        <p>
+                            click toggle button for show calcul play
+                        </p>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center" v-for=" (course,index) in courses ">
+                            -{{index}} {{course.title}} <span class="badge bg-primary rounded-pill">{{course.price}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/src/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
